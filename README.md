@@ -198,7 +198,7 @@ Each paramters are setted in the `.env` file.
 |                    | `dbUser`           |                                                   |
 |                    | `dbPassword`       |                                                   |
 | `payload`          |                    |                                                   |
-|                    | `getMessagePayload`|                                                   |
+|                    | `getMessagePayload`| Preformatted response                             |
 |                    | `getSpeechPayload` |                                                   |
 |                    | `getErrorPayload`  | Action to do when ethel has encountered an error |
 

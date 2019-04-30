@@ -1,0 +1,27 @@
+version: '3.2'
+
+services:
+  ethel_db:
+    container_name: ${APP_NAME}_db
+    image: mariadb:10.1.22
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+      - LETSENCRYPT_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_TEST=false
+    volumes:
+      - ${DATABASE_VOLUME}:/var/lib/mysql
+    ports:
+      - ${DATABASE_PORT}:3306
+  ethel:
+    networks:
+      - nginxproxy_default
+    links:
+      - ethel_db:database
+  
+networks:
+  nginxproxy_default:
+    external: true

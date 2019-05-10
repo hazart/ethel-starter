@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  ethel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${APP_NAME}
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - /app/node_modules
+      - ./var/log/pm2:/var/log/pm2
+    
+

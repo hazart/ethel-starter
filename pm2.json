@@ -1,0 +1,9 @@
+{
+  "name": "Ethel deploy",
+  "script": "src/index.js",
+  "watch": false,
+  "instances": "1",
+  "out_file": "/var/log/pm2/out.log",
+  "error_file": "/var/log/pm2/err.log",
+  "log_type": "json"
+}

@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  ethel_db_dev:
+    container_name: ${APP_NAME}_db
+    image: mariadb:10.1.22
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - ${DATABASE_VOLUME}:/var/lib/mysql
+      #- ${DATABASE_DUMP}:/docker-entrypoint-initdb.d
+    ports:
+      - ${DATABASE_PORT}:3306
+
+  pma_ethel:
+    container_name: ethel_pma
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: ${APP_NAME}_db
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - '8001:80'

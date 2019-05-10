@@ -1,0 +1,38 @@
+{
+  "name": "ethel-starter",
+  "version": "0.0.1",
+  "description": "Ethel starter",
+  "main": "./src/index.js",
+  "license": "",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-define": "^1.3.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.9.0",
+    "dotenv": "^6.0.0",
+    "eslint": "^4.1.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-loader": "^1.8.0",
+    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-no-unsafe-innerhtml": "^1.0.16",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-scanjs-rules": "0.1.5",
+    "nodemon": "^1.18.4"
+  },
+  "scripts": {
+    "start": "pm2-runtime start pm2.json",
+    "dev": "nodemon --exec 'node -r dotenv/config' src/index.js --watch ./src src/index.js --watch ../ethel --watch ../ethel/src/* --watch ../ethel/src/*/*"
+  },
+  "dependencies": {
+    "ethel-core": "https://github.com/hazart/ethel-core.git"
+  }
+}
